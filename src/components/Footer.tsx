@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { RxExternalLink } from "react-icons/rx";
 
 const Footer = () => {
   return (
