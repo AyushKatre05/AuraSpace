@@ -38,14 +38,6 @@ export default function Component() {
 
   return (
     <div className="flex bg-[#FEFDFF] flex-col min-h-dvh px-2 py-2">
-      <Link href="/" className="flex text-lg items-end font-bold">
-        <img
-          src="https://res.cloudinary.com/driaaeuhp/image/upload/v1718370102/myPortfolio/private/idi0ioweymygbowtvotd.png"
-          alt=""
-          className="h-[35px] w-[35px] object-cover"
-        />
-        <span className="text-[#1D3944]">AuraSpace</span>
-      </Link>
       <main className="flex-1 px-4 md:px-6 py-12 md:py-24 lg:py-32 flex flex-col items-center justify-center space-y-8">
         <div className="max-w-xl space-y-4 text-center">
           <h1 className="text-2xl font-bold tracking-tighter sm:text-2xl md:text-4xl">
