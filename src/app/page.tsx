@@ -1,85 +1,59 @@
 "use client";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
-import { signIn, signOut } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 
-export default function Component() {
+export default function LandingPage() {
   const { data: session, status } = useSession();
   const [loadingGoogle, setLoadingGoogle] = useState<boolean>(false);
-  const [loadingGithub, setLoadingGithub] = useState<boolean>(false);
   const router = useRouter();
-
 
   useEffect(() => {
     if (status === "authenticated") {
-     
       router.push("/dashboard/about");
-      if (loadingGoogle || loadingGithub) {
-        setLoadingGoogle(false);
-        setLoadingGithub(false);
-      }
+      if (loadingGoogle) setLoadingGoogle(false);
     }
   }, [status]);
 
   const handleSignInGoogle = async () => {
     setLoadingGoogle(true);
-    await signIn("google", { callbackUrl: "/dashboard/about" }); // Use redirect: false to handle redirection manually
-  };
-
-  const handleSignInGithub = async () => {
-    setLoadingGithub(true);
-    await signIn("github", { callbackUrl: "/dashboard/about" }); // Use redirect: false to handle redirection manually
+    await signIn("google", { callbackUrl: "/dashboard/about" });
   };
 
   return (
-    <div className="flex bg-[#FEFDFF] flex-col min-h-dvh px-2 py-2">
-      <main className="flex-1 px-4 md:px-6 py-12 md:py-24 lg:py-32 flex flex-col items-center justify-center space-y-8">
-        <div className="max-w-xl space-y-4 text-center">
-          <h1 className="text-2xl font-bold tracking-tighter sm:text-2xl md:text-4xl">
-            Welcome to{" "}
-            <span className="text-portfolioPrimary text-3xl md:text-5xl">AuraSpace</span>
+    <div className="flex min-h-screen bg-gray-100 px-4 py-6">
+      <main className="flex-1 flex flex-col items-center justify-center space-y-8 text-gray-800">
+        <div className="text-center space-y-4">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            Welcome to <span className="text-indigo-600">AuraSpace</span>
           </h1>
-          <p className="text-gray-700 text-md md:text-lg dark:text-gray-400">
-          AuraSpace is a web platform enabling users to create and deploy stunning portfolio effortlessly. Elevate your online presence and attract opportunities with AuraSpace
+          <p className="max-w-md mx-auto text-base sm:text-lg md:text-xl text-gray-600">
+            AuraSpace is a platform to create and showcase professional portfolios. Build your online presence with ease and attract new opportunities.
           </p>
         </div>
-        <div className="w-full max-w-md space-y-4">
+        <div className="w-full max-w-sm space-y-4">
           <Button
             variant="outline"
             onClick={handleSignInGoogle}
-            className="w-full border-2"
+            className="w-full border bg-white text-indigo-600 font-medium hover:bg-gray-50"
             disabled={loadingGoogle}
           >
             <FcGoogle className="mr-2 h-5 w-5" />
             Sign in with Google
             {loadingGoogle && (
               <span
-                className="loader2 ml-5"
+                className="loader2 ml-3"
                 style={{ height: "20px", width: "20px", borderWidth: "2px" }}
-              ></span>
-            )}
-          </Button>
-          <Button
-            variant="outline"
-            onClick={handleSignInGithub}
-            className="w-full border-2"
-            disabled={loadingGithub}
-          >
-            <FaGithub className="mr-2 h-5 w-5" />
-            Sign in with GitHub
-            {loadingGithub && (
-              <span
-                style={{ height: "20px", width: "20px", borderWidth: "2px" }}
-                className="loader2 ml-5"
               ></span>
             )}
           </Button>
         </div>
+        <p className="text-xs text-gray-500">
+          By signing in, you agree to our Terms of Service and Privacy Policy.
+        </p>
       </main>
     </div>
   );
