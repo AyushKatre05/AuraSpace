@@ -55,15 +55,10 @@ export default function PortfolioNavbar() {
             <SheetContent side="left">
               <Link
                 href="/"
-                className="text-lg flex items-end font-bold"
+                className="text-lg flex items-center justify-center font-bold"
                 prefetch={false}
               >
-                <img
-                  src="https://res.cloudinary.com/dzxqk6xcd/image/upload/v1731487916/auraspace/chat_vdrajs.png"
-                  alt=""
-                  className="h-[35px] w-[35px] object-cover"
-                />
-                <span className="text-[#1D3944]">AuraSpace</span>
+                <span className="text-[#1D3944] text-3xl font-extrabold">AuraSpace</span>
               </Link>
               <div className="grid gap-2 py-6">
                 <SheetClose asChild>
