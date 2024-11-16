@@ -15,15 +15,10 @@ export default function PortfolioNavbar() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link
           href="/"
-          className="text-lg flex items-end font-bold"
+          className="text-lg flex items-center justify-center font-bold"
           prefetch={false}
         >
-          <img
-            src="https://res.cloudinary.com/dzxqk6xcd/image/upload/v1731487916/auraspace/chat_vdrajs.png"
-            alt=""
-            className="h-[35px] w-[35px] object-cover"
-          />
-          <span className="text-[#1D3944]">AuraSpace</span>
+          <span className="text-[#42b1de] font-extrabold text-3xl">AuraSpace</span>
         </Link>
         <nav className="hidden space-x-10 md:flex">
           <Link

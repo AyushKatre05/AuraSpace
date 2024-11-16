@@ -28,11 +28,12 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Publish } from "./Publish";
+import { GitGraph, HamIcon, Info, MenuIcon, Mountain, User } from "lucide-react";
+import { MdGraphicEq } from "react-icons/md";
+import { IoBulb } from "react-icons/io5";
 
 export default function SideNavbar() {
   const { data: session, status } = useSession();
-  const params = useParams();
-  const pathName = usePathname();
   const [isPublish, setIsPublilsh] = useState<boolean>(false);
   const [isPublishing, setIsPublishing] = useState<boolean>(false);
   const [domain, setDomain] = useState("");
@@ -41,22 +42,22 @@ export default function SideNavbar() {
     {
       name: "About",
       href: "/dashboard/about",
-      icon: InfoIcon,
+      icon: Info,
     },
     {
       name: "Skills",
       href: "/dashboard/skill",
-      icon: MenuIcon,
+      icon: IoBulb,
     },
     {
       name: "Projects",
       href: "/dashboard/project/view",
-      icon: MountainIcon,
+      icon: Mountain,
     },
     {
       name: "Contact info",
       href: "/dashboard/contact",
-      icon: UserIcon,
+      icon: User,
     },
   ];
 
@@ -146,14 +147,9 @@ export default function SideNavbar() {
       </div>
       <nav className="hidden fixed   h-screen w-64 shrink-0 border-r  bg-gray-100 dark:border-gray-800 dark:bg-gray-900 md:block ">
         <div className="flex h-full flex-col justify-between py-6">
-          <div className="space-y-6 px-4">
-            <Link href="/" className="flex text-lg items-end font-bold">
-              <img
-                src="https://res.cloudinary.com/dzxqk6xcd/image/upload/v1731487916/auraspace/chat_vdrajs.png"
-                alt=""
-                className="h-[35px] w-[35px] object-cover"
-              />
-              <span className="text-[#1D3944]">AuraSpace</span>
+          <div className="space-y-6">
+            <Link href="/" className="flex text-lg items-centers justify-center font-bold">
+              <span className="text-[#3497bd] font-extrabold text-3xl">AuraSpace</span>
             </Link>
             <div className="space-y-2">
               {NavList.map((item, index) => {
@@ -235,7 +231,7 @@ export default function SideNavbar() {
           <Sheet>
             <SheetTrigger asChild>
               <Button className="rounded-full" size="icon" variant="outline">
-                <MenuIcon className="h-6 w-6" />
+                <HamIcon className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
@@ -272,86 +268,5 @@ export default function SideNavbar() {
         </header>
       </div>
     </div>
-  );
-}
-
-function InfoIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <path d="M12 16v-4" />
-      <path d="M12 8h.01" />
-    </svg>
-  );
-}
-
-function MenuIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="4" x2="20" y1="12" y2="12" />
-      <line x1="4" x2="20" y1="6" y2="6" />
-      <line x1="4" x2="20" y1="18" y2="18" />
-    </svg>
-  );
-}
-
-function MountainIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-    </svg>
-  );
-}
-
-function UserIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-      <circle cx="12" cy="7" r="4" />
-    </svg>
   );
 }
