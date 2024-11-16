@@ -149,7 +149,7 @@ export default function SideNavbar() {
           <div className="space-y-6 px-4">
             <Link href="/" className="flex text-lg items-end font-bold">
               <img
-                src="https://res.cloudinary.com/driaaeuhp/image/upload/v1718370102/myPortfolio/private/idi0ioweymygbowtvotd.png"
+                src="https://res.cloudinary.com/dzxqk6xcd/image/upload/v1731487916/auraspace/chat_vdrajs.png"
                 alt=""
                 className="h-[35px] w-[35px] object-cover"
               />
@@ -244,7 +244,7 @@ export default function SideNavbar() {
                 <div className="space-y-6 px-1">
                   <Link href="/" className="flex text-lg items-end font-bold">
                     <img
-                      src="https://res.cloudinary.com/driaaeuhp/image/upload/v1718370102/myPortfolio/private/idi0ioweymygbowtvotd.png"
+                      src="https://res.cloudinary.com/dzxqk6xcd/image/upload/v1731487916/auraspace/chat_vdrajs.png"
                       alt=""
                       className="h-[35px] w-[35px] object-cover"
                     />

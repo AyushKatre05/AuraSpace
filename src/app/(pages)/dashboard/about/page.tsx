@@ -11,7 +11,7 @@ type AboutFormData = {
   name: string;
   heading: string;
   about: string;
-  image: FileList; // Use FileList to handle file input
+  image: FileList;
 };
 
 const Page: React.FC = () => {
@@ -26,9 +26,8 @@ const Page: React.FC = () => {
   const [isUpdate, setIsUpdate] = useState<boolean>(false);
   const [aboutId, setAboutId] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [pageLoading, setPageLoading] = useState<boolean>(true); // Add a state for page loading
+  const [pageLoading, setPageLoading] = useState<boolean>(true);
   const [previousImage, setPreviousImage] = useState<string>("");
-
 
   useEffect(() => {
     return () => {
@@ -42,12 +41,9 @@ const Page: React.FC = () => {
     setIsLoading(true);
     let imageUrl = imagePreview;
 
-    // Upload the image first if it exists
     if (data.image && data.image.length > 0) {
       const formData = new FormData();
       formData.append("file", data.image[0]);
-
-      // delete the previous image if it exists
 
       const imageResponse = await fetch("/api/image/upload", {
         method: "POST",
@@ -57,11 +53,11 @@ const Page: React.FC = () => {
       const imageResult = await imageResponse.json();
 
       if (previousImage) {
-        console.log("previousImage", previousImage);
-        const response = fetch(`/api/image/upload/${previousImage}`, {
+        fetch(`/api/image/upload/${previousImage}`, {
           method: "DELETE",
         });
       }
+
       if (imageResponse.ok) {
         imageUrl = imageResult.imgUrl;
         setPreviousImage(imageUrl);
@@ -108,7 +104,7 @@ const Page: React.FC = () => {
 
       if (response.ok) {
         toast.success("About added successfully");
-        setIsUpdate(true); // Set to update mode after adding
+        setIsUpdate(true);
       } else {
         console.error("Failed to submit data");
       }
@@ -118,7 +114,7 @@ const Page: React.FC = () => {
   };
 
   const getUserAbout = async () => {
-    setPageLoading(true); // Set pageLoading to true when starting data fetch
+    setPageLoading(true);
     try {
       const response = await fetch(
         `/api/portfolio/about/getabout/${session?.user?.id}`,
@@ -139,18 +135,16 @@ const Page: React.FC = () => {
         setValue("about", data.data[0].about);
         setPreviousImage(data.data[0].image);
         
-        setImagePreview(data.data[0].image); // Set the current image preview
+        setImagePreview(data.data[0].image);
       } else {
         setIsUpdate(false);
         setIsLoading(false);
-        setAboutId(""); // Reset aboutId if there's no existing data
-        // console.log(data);
-      
+        setAboutId("");
       }
     } catch (error) {
       console.log("error getting user about", error);
     } finally {
-      setPageLoading(false); // Set pageLoading to false when data fetch is complete
+      setPageLoading(false);
     }
   };
 
@@ -195,65 +189,64 @@ const Page: React.FC = () => {
     if (status === "authenticated") {
       getUserAbout();
     }
-  }, [status === "authenticated"]);
+  }, [status]);
 
   if (pageLoading || status === "loading") {
     return (
-      <main className="flex justify-center items-center w-full h-screen">
+      <main className="flex justify-center items-center w-full h-screen bg-gray-50">
         <span className="loader2"></span>
       </main>
     );
   }
 
   return (
-    <div className="md:mt-16 mt-4 px-2">
-      <h1 className="text-2xl font-medium">Personal Details</h1>
-      <div className="w-full mt-2 border rounded-md px-4 py-4">
-        <div className="w-full flex gap-4 justify-end">
-          <Button
-            className="flex gap-2 px-6"
-            onClick={handleSubmit(onSubmit)}
-            disabled={isLoading}
-          >
-            {isUpdate ? "Update" : "Add"}
-            {isLoading && <span className="loader ml-2"></span>}
-          </Button>
-        </div>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="w-full mt-4 lg:grid lg:grid-cols-2 gap-x-6"
-        >
-          <div className="flex flex-col gap-9">
-            <InputAdmin
-              label="Name"
-              placeholder="Enter your name"
-              {...register("name")}
-              error={getErrorMessage(errors.name)}
-            />
-            <InputAdmin
-              label="About"
-              placeholder="Enter details about yourself"
-              {...register("about")}
-              error={getErrorMessage(errors.about)}
-              textarea={true}
-            />
+    <div className="container mx-auto md:mt-16 mt-6 px-6">
+      <h1 className="text-3xl font-semibold text-gray-800">Personal Details</h1>
+      <div className="mt-6 bg-white shadow-md rounded-lg p-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <div className="flex flex-col md:flex-row md:space-x-8">
+            <div className="w-full md:w-1/2 space-y-4">
+              <InputAdmin
+                label="Name"
+                placeholder="Enter your name"
+                {...register("name")}
+                error={getErrorMessage(errors.name)}
+              />
+              <InputAdmin
+                label="About"
+                placeholder="Enter details about yourself"
+                {...register("about")}
+                error={getErrorMessage(errors.about)}
+                textarea
+              />
+            </div>
+            <div className="w-full md:w-1/2 space-y-4">
+              <InputAdmin
+                label="Heading"
+                placeholder="Enter your headline"
+                {...register("heading")}
+                error={getErrorMessage(errors.heading)}
+              />
+              <InputAdmin
+                type="file"
+                label="Image"
+                placeholder="Upload image"
+                onChange={handleImageChange}
+                error={getErrorMessage(errors.image)}
+                image={!!imagePreview}
+                imageUrl={imagePreview}
+              />
+            </div>
           </div>
-          <div className="flex mt-9 lg:mt-0 flex-col gap-9">
-            <InputAdmin
-              label="Heading"
-              placeholder="Enter your headlines"
-              {...register("heading")}
-              error={getErrorMessage(errors.heading)}
-            />
-            <InputAdmin
-              type="file"
-              label="Image"
-              placeholder="Upload project image"
-              onChange={handleImageChange} // Use onImageChange for file input
-              error={getErrorMessage(errors.image)}
-              image={!!imagePreview}
-              imageUrl={imagePreview}
-            />
+          <div className="flex justify-end">
+            <Button
+              type="submit"
+              className="px-8 py-2 text-white bg-purple-600 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-50"
+              disabled={isLoading}
+            >
+              {isUpdate ? "Update" : "Add"}
+              {isLoading && <span className="loader ml-2"></span>}
+            </Button>
           </div>
         </form>
       </div>

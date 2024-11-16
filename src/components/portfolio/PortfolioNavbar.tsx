@@ -19,7 +19,7 @@ export default function PortfolioNavbar() {
           prefetch={false}
         >
           <img
-            src="https://res.cloudinary.com/driaaeuhp/image/upload/v1718370102/myPortfolio/private/idi0ioweymygbowtvotd.png"
+            src="https://res.cloudinary.com/dzxqk6xcd/image/upload/v1731487916/auraspace/chat_vdrajs.png"
             alt=""
             className="h-[35px] w-[35px] object-cover"
           />
@@ -64,7 +64,7 @@ export default function PortfolioNavbar() {
                 prefetch={false}
               >
                 <img
-                  src="https://res.cloudinary.com/driaaeuhp/image/upload/v1718370102/myPortfolio/private/idi0ioweymygbowtvotd.png"
+                  src="https://res.cloudinary.com/dzxqk6xcd/image/upload/v1731487916/auraspace/chat_vdrajs.png"
                   alt=""
                   className="h-[35px] w-[35px] object-cover"
                 />
