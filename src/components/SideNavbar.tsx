@@ -238,13 +238,8 @@ export default function SideNavbar() {
             <SheetContent side="left">
               <div className="flex h-full flex-col justify-between py-2">
                 <div className="space-y-6 px-1">
-                  <Link href="/" className="flex text-lg items-end font-bold">
-                    <img
-                      src="https://res.cloudinary.com/dzxqk6xcd/image/upload/v1731487916/auraspace/chat_vdrajs.png"
-                      alt=""
-                      className="h-[35px] w-[35px] object-cover"
-                    />
-                    <span className="text-[#1D3944]">AuraSpace</span>
+                  <Link href="/" className="flex text-lg items-center justify-center font-bold">
+                    <span className="text-[#3ebaea] font-extrabold text-3xl">AuraSpace</span>
                   </Link>
                   <div className="space-y-2">
                     {NavList.map((item, index) => {
