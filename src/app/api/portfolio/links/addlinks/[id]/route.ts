@@ -1,5 +1,5 @@
 import { dbConnect } from "@/lib/dbConnect";
-import Link from "@/Models/linkModel";
+import Link from "@/models/linkModel";
 import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async (req: NextRequest, {params} : any) => {

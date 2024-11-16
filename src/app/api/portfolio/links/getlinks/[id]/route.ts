@@ -1,5 +1,5 @@
 import { dbConnect } from "@/lib/dbConnect";
-import Link from "@/Models/linkModel";
+import Link from "@/models/linkModel";
 import { NextResponse, NextRequest } from "next/server";
 
 export const GET = async (req: NextRequest, { params }: any) => {

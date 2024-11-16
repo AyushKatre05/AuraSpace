@@ -1,5 +1,5 @@
 import { dbConnect } from "@/lib/dbConnect";
-import Project from "@/Models/projectModel";
+import Project from "@/models/projectModel";
 import { NextResponse, NextRequest } from "next/server";
 
 export const GET = async (req: NextRequest, {params} : any) => {

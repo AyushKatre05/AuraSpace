@@ -4,7 +4,6 @@ import "./globals.css";
 import Provider from "@/components/Provider";
 import { Toaster } from 'sonner'
 import { TooltipProvider } from "@/components/ui/tooltip";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
 import NextTopLoader from 'nextjs-toploader';
  
 const inter = Inter({ subsets: ["latin"] });
@@ -28,7 +27,6 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoogleAnalytics />
       <body className={inter.className}>
         <Provider>
         <NextTopLoader height={4}

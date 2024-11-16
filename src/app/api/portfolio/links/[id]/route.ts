@@ -1,5 +1,5 @@
 import { dbConnect } from "@/lib/dbConnect";
-import Link from "@/Models/linkModel";
+import Link from "@/models/linkModel";
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 
