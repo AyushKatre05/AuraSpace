@@ -25,7 +25,7 @@ const PortfolioAbout = ({ aboutDatas, allLinks }: {
        }
         <div className="text-center mt-4 ">
           <h3 className="">
-            <span className="font-semibold text-base md:text-xl">My Self,</span>{" "}
+            <span className="font-semibold text-base md:text-xl">I am </span>{" "}
             <span className="text-portfolioSecondary md:text-4xl text-3xl font-bold">
               {aboutDatas[0]?.name}
             </span>
