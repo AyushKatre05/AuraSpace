@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from "next/server"
-import Skill from "../../../../../models/skillModel"
+import Skill from "../../../../../Models/skillModel"
 import { dbConnect } from "../../../../../lib/dbConnect"
 
 export const PUT = async (req: NextRequest, ) => {

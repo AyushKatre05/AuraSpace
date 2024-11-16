@@ -1,7 +1,7 @@
 import { dbConnect } from "@/lib/dbConnect";
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
-import User from "@/models/userModel";
+import User from "@/Models/userModel";
 
 export const GET = async (req: NextRequest, { params }: any) => {
   try {

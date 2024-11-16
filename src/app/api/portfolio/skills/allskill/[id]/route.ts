@@ -1,5 +1,5 @@
 import { dbConnect } from "@/lib/dbConnect";
-import Skill from "@/models/skillModel";
+import Skill from "@/Models/skillModel";
 import { NextResponse, NextRequest } from "next/server";
 
 export const GET = async (req: NextRequest,{params} : any) => {

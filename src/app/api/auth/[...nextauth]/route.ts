@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import { dbConnect } from '@/lib/dbConnect';
-import User from '@/models/userModel';
+import User from '@/Models/userModel';
 
 const authOptions: any = {
   providers: [

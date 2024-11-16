@@ -1,7 +1,7 @@
 import PortfolioAbout from "../../../components/portfolio/PortfolioAbout";
 import SkillsSection from "@/components/portfolio/PortfolioSkills";
 import PortfolioProjectCard from "@/components/portfolio/PortfolioProjectCard";
-import Portfolio from "@/models/portfolioModel";
+import Portfolio from "@/Models/portfolioModel";
 import { redirect } from "next/navigation";
 import { dbConnect } from "@/lib/dbConnect";
 import mongoose from "mongoose";

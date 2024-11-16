@@ -26,7 +26,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useState, useEffect } from "react";
-import skillIcons from "@/data/skillIcon";
+import skillIcons from "@/Data/skillIcon";
 import { Separator } from "../ui/separator";
 import { useSession } from "next-auth/react";
 import { toast } from "sonner";

@@ -1,7 +1,7 @@
 import { dbConnect } from "@/lib/dbConnect";
-import Skill from "@/models/skillModel";
+import Skill from "@/Models/skillModel";
 import { NextRequest, NextResponse } from "next/server";
-import User from "@/models/userModel";
+import User from "@/Models/userModel";
 
 export const POST = async (req: NextRequest, { params }: any) => {
   try {

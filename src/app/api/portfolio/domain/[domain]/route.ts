@@ -1,5 +1,5 @@
 import { dbConnect } from "@/lib/dbConnect";
-import Portfolio from "@/models/portfolioModel";
+import Portfolio from "@/Models/portfolioModel";
 import { NextResponse, NextRequest } from "next/server";
 
 // for get userid by domain

@@ -1,6 +1,6 @@
 import { dbConnect } from "@/lib/dbConnect";
 import { NextResponse, NextRequest } from "next/server";
-import Portfolio from "@/models/portfolioModel";
+import Portfolio from "@/Models/portfolioModel";
 import mongoose from "mongoose";
 
 export const GET = async (req: NextRequest, { params }: any) => {
