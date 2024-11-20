@@ -11,7 +11,6 @@ const PortfolioAbout = ({
   allLinks: any;
 }) => {
   return (
-<<<<<<< HEAD
     <section
       id="about"
       className="w-full h-full bg-gray-100 dark:bg-gray-900 py-12 px-6 transition-colors duration-300"
@@ -48,29 +47,6 @@ const PortfolioAbout = ({
           <h2 className="text-2xl md:text-4xl font-bold text-gray-800 dark:text-gray-100">
             Hello, I'm{" "}
             <span className="text-primary dark:text-blue-600">
-=======
-    <section id="about" className=" w-full h-full">
-      <div className="w-full h-full mt-2 py-6 px-2 flex flex-col justify-center items-center border-2 border-solid ">
-       {
-         aboutDatas[0]?.image && 
-          <div className="flex justify-center object-cover items-center w-full max-w-[180px]  md:max-w-[200px] aspect-square p-1 overflow-hidden rounded-full border-solid border-4 border-portfolioSecondary">
-          <Image
-            className="rounded-full object-cover w-full h-full"
-            src={aboutDatas[0]?.image}
-            alt="user's image"
-            width={200}
-            height={200}
-            layout="responsive"
-            quality={100}
-            title="user image"
-          />
-        </div>
-       }
-        <div className="text-center mt-4 ">
-          <h3 className="">
-            <span className="font-semibold text-base md:text-xl">I am </span>{" "}
-            <span className="text-portfolioSecondary md:text-4xl text-3xl font-bold">
->>>>>>> ed501dcb7815544c41be491570be2241f53b4d21
               {aboutDatas[0]?.name}
             </span>
           </h2>
