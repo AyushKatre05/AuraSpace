@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import SharePortfolio from "./SharePortfolio";
+import ThemeToggleButton from "../ThemeToggleButton";
 
 export default function PortfolioNavbar() {
   return (
@@ -15,15 +16,10 @@ export default function PortfolioNavbar() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link
           href="/"
-          className="text-lg flex items-end font-bold"
+          className="text-lg flex items-center justify-center font-bold"
           prefetch={false}
         >
-          <img
-            src="https://res.cloudinary.com/dzxqk6xcd/image/upload/v1731487916/auraspace/chat_vdrajs.png"
-            alt=""
-            className="h-[35px] w-[35px] object-cover"
-          />
-          <span className="text-[#1D3944]">AuraSpace</span>
+          <span className="text-[#42b1de] font-extrabold text-3xl">AuraSpace</span>
         </Link>
         <nav className="hidden space-x-10 md:flex">
           <Link
@@ -49,6 +45,7 @@ export default function PortfolioNavbar() {
           </Link>
         </nav>
         <div className="flex items-center gap-4">
+        <ThemeToggleButton />
           <SharePortfolio />
           <Sheet>
             <SheetTrigger asChild>
@@ -60,15 +57,10 @@ export default function PortfolioNavbar() {
             <SheetContent side="left">
               <Link
                 href="/"
-                className="text-lg flex items-end font-bold"
+                className="text-lg flex items-center justify-center font-bold"
                 prefetch={false}
               >
-                <img
-                  src="https://res.cloudinary.com/dzxqk6xcd/image/upload/v1731487916/auraspace/chat_vdrajs.png"
-                  alt=""
-                  className="h-[35px] w-[35px] object-cover"
-                />
-                <span className="text-[#1D3944]">AuraSpace</span>
+                <span className="text-[#1D3944] text-3xl font-extrabold">AuraSpace</span>
               </Link>
               <div className="grid gap-2 py-6">
                 <SheetClose asChild>
