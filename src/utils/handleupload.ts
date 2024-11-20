@@ -14,7 +14,7 @@ const uploadToCloudinary = (
         invalidate: true,
         resource_type: "auto",
         filename_override: fileName,
-        folder: "myPortfolio", // any sub-folder name in your cloud
+        folder: "auraspace", 
         use_filename: true,
       })
       .then((result) => {
